@@ -20,14 +20,14 @@ x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
 x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
 
 model = tf.keras.models.Sequential([
-    InputLayer(),
+    InputLayer(input_shape=(28,28, 1)),
     Conv2D(64, (3, 3), activation='relu'),
     MaxPooling2D(pool_size=(2, 2)),
     Conv2D(128, (3, 3), activation='relu'),
     MaxPooling2D(pool_size=(2, 2)),
     Conv2D(128, (3, 3), activation='relu'),
     MaxPooling2D(pool_size=(2, 2)),
-    Flatten(input_shape=(28,28)),
+    Flatten(),
     Dense(128, activation="relu"),
     Dropout(0.2),
     Dense(10, activation='softmax')
