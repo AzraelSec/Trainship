@@ -17,13 +17,13 @@ mnist = tf.keras.datasets.mnist
 x_train, x_test = x_train / 255.0, x_test / 255.0
 
 model = tf.keras.models.Sequential([
-    #InputLayer(),
-    #Conv2D(64, (3, 3), activation='relu'),
-    #MaxPooling2D(pool_size=(2, 2)),
-    #Conv2D(128, (3, 3), activation='relu'),
-    #MaxPooling2D(pool_size=(2, 2)),
-    #Conv2D(128, (3, 3), activation='relu'),
-    #MaxPooling2D(pool_size=(2, 2)),
+    InputLayer(),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D(pool_size=(2, 2)),
+    Conv2D(128, (3, 3), activation='relu'),
+    MaxPooling2D(pool_size=(2, 2)),
+    Conv2D(128, (3, 3), activation='relu'),
+    MaxPooling2D(pool_size=(2, 2)),
     Flatten(input_shape=(28,28)),
     Dense(128, activation="relu"),
     Dropout(0.2),
