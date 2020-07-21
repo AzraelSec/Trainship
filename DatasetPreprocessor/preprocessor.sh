@@ -51,7 +51,7 @@ for family in ${sorted_selected_families[*]};do
     selected_files_list=`find $1/$family -type f -size -${min_size} -printf "%f\n" | head -n $FILES_PER_FAMILY | sort -R`
     selected_files_num=`echo "$selected_files_list" | wc -l`
     for file in ${selected_files_list[*]};do
-        cp $1/$family$file $2/$family/$file
+        cp $1/$family/$file $2/$family/$file
     done
     echo "I would have copied ${selected_files_num} files from $family"
 done
