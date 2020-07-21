@@ -43,7 +43,7 @@ done
 
 echo -e "\n######## RESULTS ########"
 min_size=`echo "${collected_family_info[*]}" | tr ' ' '\n' | tr '-' ' ' | sort -nrk 2 | head -n 1 | cut -d ' ' -f 2`
-echo -e "\nYou need a minumum size of ${min_size} bytes from the fist ${FAMILIES_REQUIRED} families"
+echo -e "You need a minumum size of ${min_size} bytes from the fist ${FAMILIES_REQUIRED} families"
 
 echo -e "\n######## RANDOM FILES CREATING ########"
 for family in ${sorted_selected_families[*]};do
@@ -51,7 +51,7 @@ for family in ${sorted_selected_families[*]};do
     selected_files_list=`find $1/$family -type f -size -${min_size} -printf "%f\n" | head -n $FILES_PER_FAMILY | sort -R`
     selected_files_num=`echo "$selected_files_list" | wc -l`
     for file in ${selected_files_list[*]};do
-        touch $2/$family/$file
+        cp $1/$family$file $2/$family/$file
     done
     echo "I would have copied ${selected_files_num} files from $family"
 done
