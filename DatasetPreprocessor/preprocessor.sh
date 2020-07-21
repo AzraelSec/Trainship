@@ -48,10 +48,10 @@ echo -e "You need a minumum size of ${min_size} bytes from the fist ${FAMILIES_R
 echo -e "\n######## RANDOM FILES CREATING ########"
 for family in ${sorted_selected_families[*]};do
     mkdir $2/$family
-    selected_files_list=`find $1/$family -type f -size -${min_size} -printf "%f\n" | head -n $FILES_PER_FAMILY | sort -R`
+    selected_files_list=`find $1/$family -type f -size -${min_size} -printf "%p\n" | head -n $FILES_PER_FAMILY | sort -R`
     selected_files_num=`echo "$selected_files_list" | wc -l`
     for file in ${selected_files_list[*]};do
-        cp $1/$family/$file $2/$family/$file
+        cp $file $2/$family/`basename $file`
     done
     echo "I would have copied ${selected_files_num} files from $family"
 done
