@@ -75,11 +75,13 @@ for family in ${sorted_selected_families[*]};do
         cp $file $family_training_path/`basename $file`
     done
     for file in $(find $family_training_path -type f -printf "%p\n" | head -n $val_files_num | sort -R);do
-        cp $file $family_training_path/../../val/$family/`basename $file`
+        mv $file $family_training_path/../../val/$family/`basename $file`
     done
     for file in $(find $family_training_path -type f -printf "%p\n" | head -n $test_files_num | sort -R);do
-        cp $file $family_training_path/../../../test/$family/`basename $file`
+        mv $file $family_training_path/../../../test/$family/`basename $file`
     done
 
-    echo "I've copied all the files into  $family_training_path"
+    echo "I've preprocessed all the files belonging to the $family family"
 done
+
+echo -e "\n$0 has finished; good luck!"
