@@ -14,6 +14,8 @@ fi
 ############################
 FILES_PER_FAMILY=300
 FAMILIES_REQUIRED=8
+VAL_PERCENTAGE=10 #Compared to $FILES_PER_FAMILY
+TEST_PERCENTAGE=20 #Compared to $FILES_PER_FAMILY
 
 echo -e "\n######## ANALYSIS ########"
 collected_family_info=()
@@ -46,12 +48,40 @@ min_size=`echo "${collected_family_info[*]}" | tr ' ' '\n' | tr '-' ' ' | sort -
 echo -e "You need a minumum size of ${min_size} bytes from the fist ${FAMILIES_REQUIRED} families"
 
 echo -e "\n######## RANDOM FILES CREATING ########"
+
+test_dir_path="$2/test"
+training_main_path="$2/training"
+training_path="$2/training/train"
+val_dir_path="$2/training/val"
+mkdir $test_dir_path
+mkdir $training_main_path
+mkdir $training_path
+mkdir $val_dir_path
+
 for family in ${sorted_selected_families[*]};do
-    mkdir $2/$family
-    selected_files_list=`find $1/$family -type f -size -${min_size} -printf "%p\n" | head -n $FILES_PER_FAMILY | sort -R`
-    selected_files_num=`echo "$selected_files_list" | wc -l`
-    for file in ${selected_files_list[*]};do
-        cp $file $2/$family/`basename $file`
+
+    family_training_path=$training_path/$family/
+
+    mkdir $family_training_path
+    mkdir $test_dir_path/$family
+    mkdir $val_dir_path/$family
+
+    training_files=`find $1/$family -type f -size -${min_size} -printf "%p\n" | head -n $FILES_PER_FAMILY | sort -R`
+    training_files_num=`echo "$training_files" | wc -l`
+    val_files_num=$(($training_files_num / 100 * $VAL_PERCENTAGE))
+    test_files_num=$(($training_files_num / 100 * $TEST_PERCENTAGE))
+
+    for file in ${training_files[*]};do
+        cp $file $family_training_path/`basename $file`
     done
-    echo "I would have copied ${selected_files_num} files from $family"
+    for file in $(find $family_training_path -type f -printf "%p\n" | head -n $val_files_num | sort -R);do
+        mv $file $family_training_path/../../val/$family/`basename $file`
+    done
+    for file in $(find $family_training_path -type f -printf "%p\n" | head -n $test_files_num | sort -R);do
+        mv $file $family_training_path/../../../test/$family/`basename $file`
+    done
+
+    echo "I've preprocessed all the files belonging to the $family family"
 done
+
+echo -e "\n$0 has finished; good luck!"
