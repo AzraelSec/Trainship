@@ -4,11 +4,9 @@ from datetime import datetime
 from termcolor import colored
 from PIL import Image
 from sys import argv
+import math
 
 class Mirror:
-    def __init__(self, width=128):
-        self.width = width if width > 0 else 128
-
     def get_file_bytes(self, file_path):
         bytes_pool = []
         with open(file_path, 'rb') as fd:
@@ -19,7 +17,8 @@ class Mirror:
         return bytes_pool
     
     def get_img_size(self, bytes_len):
-        return (self.width, int(bytes_len / self.width) + 1)
+        size = int(math.sqrt(bytes_len)) + 1
+        return (size, size)
     
     def save_image(self, output_name,  data, size):
         image = Image.new('L', size)
@@ -95,7 +94,7 @@ if __name__ == '__main__':
     output_dir = (os.path.normpath(argv[2]) if len(argv) >= 3 and os.path.isdir(argv[2]) else './')
     debug('using output parent directory: {}'.format(output_dir))
 
-    mirrorPY = Mirror(1024)
+    mirrorPY = Mirror()
     info('MirrorPy is doing its magic..')
 
     try:
