@@ -12,7 +12,7 @@ fi
 # $1 source path
 # $2 destination path
 copy_max_label() {
-    for file in $(find $1 -type f -printf "%P\n" | head -n $MAX_FAMILIES); do
+    for file in $(find $1 -type f -printf "%P\n" | head -n $MAX_EXAMPLES); do
         cp "$1/$file" "$2/$file"
     done
 }
@@ -35,6 +35,7 @@ if [ -d "$1/trusted" ];then
     echo "$1/trusted director found"
     mkdir "$2/trusted"
     copy_max_label "$1/trusted/" "$2/trusted/"
+    echo "trusted copied"
 fi
 
 filtered_data=($(for data in ${available_families[*]};do
