@@ -11,11 +11,12 @@ fi
 
 MAX_FAMILIES=10
 MIN_EXAMPLES=10
+MAX_EXAMPLES=20
 available_families=()
 echo "sniper's gone start:"
 for family in $(ls $1 | sort);do
     for variety in $(find $1/$family -mindepth 1 -maxdepth 1 -type d -printf "%P\n");do
-        examples_num=`ls $1/$family/$variety/ | wc -l`
+        examples_num=`ls $1/$family/$variety/ | head -n $MIN_EXAMPLES |wc -l`
         if [ $examples_num -ge $MIN_EXAMPLES ];then
             echo -e "\t[$family][$variety]: $examples_num"
             available_families+=("$1/$family/$variety+${family}_${variety}")
