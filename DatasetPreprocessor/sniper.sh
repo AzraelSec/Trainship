@@ -12,14 +12,14 @@ fi
 # $1 source path
 # $2 destination path
 copy_max_label() {
-    for file in $(find $1 -type f -printf "%P\n" | head -n); do
+    for file in $(find $1 -type f -printf "%P\n" | head -n $MAX_FAMILIES); do
         cp "$1/$file" "$2/$file"
     done
 }
 
 MAX_FAMILIES=10
 MIN_EXAMPLES=600
-MAX_EXAMPLES
+MAX_EXAMPLES=1000
 available_families=()
 echo "sniper's gone start:"
 for family in $(ls $1 | sort);do
