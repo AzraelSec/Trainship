@@ -17,9 +17,9 @@ fi
 # $1 to analyze file path
 has_acceptable_width() {
     if [ $(identify -format "%w" $1) -le "$MAX_WIDTH" ];then
-        return true
+        echo 1
     else
-        return false
+        echo 0
     fi
 }
 
@@ -27,7 +27,7 @@ has_acceptable_width() {
 # $2 destination path
 copy_max_label() {
     for file in $(find $1 -type f -printf "%P\n" | sort -R | head -n $MAX_EXAMPLES); do
-        if [ "$(has_acceptable_width $file)" = true ];then
+        if [ "$(has_acceptable_width $file)" = "1" ];then
             cp "$1/$file" "$2/$file"
         fi
     done
@@ -37,11 +37,11 @@ copy_max_label() {
 count_available_images() {
     acceptable_count=0
     for file in $(find $1 -type f -printf "%p\n");do
-        if [ "$(has_acceptable_width $file)" = true ];then
+        if [ "$(has_acceptable_width $file)" = "1" ];then
             ((acceptable_count++))
         fi
     done
-    return acceptable_count
+    echo acceptable_count
 }
 
 available_families=()
