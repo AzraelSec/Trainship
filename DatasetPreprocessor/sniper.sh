@@ -16,7 +16,7 @@ fi
 
 # $1 to analyze file path
 has_acceptable_width() {
-    if [ $(identify -format "%w" $1) -le "$MAX_WIDTH" ];then
+    if [ "$(identify -format '%w' $1)" -le "$MAX_WIDTH" ];then
         echo 1
     else
         echo 0
@@ -27,7 +27,7 @@ has_acceptable_width() {
 # $2 destination path
 copy_max_label() {
     for file in $(find $1 -type f -printf "%P\n" | sort -R | head -n $MAX_EXAMPLES); do
-        if [ "$(has_acceptable_width $1/$file)" = "1" ];then
+        if [ "$(has_acceptable_width $1/$file)" == "1" ];then
             cp "$1/$file" "$2/$file"
         fi
     done
@@ -37,11 +37,11 @@ copy_max_label() {
 count_available_images() {
     acceptable_count=0
     for file in $(find $1 -type f -printf "%p\n");do
-        if [ "$(has_acceptable_width $file)" = "1" ];then
+        if [ "$(has_acceptable_width $file)" == "1" ];then
             ((acceptable_count++))
         fi
     done
-    echo acceptable_count
+    echo $acceptable_count
 }
 
 available_families=()
@@ -50,9 +50,8 @@ for family in $(ls $1);do
     for variety in $(find $1/$family -mindepth 1 -maxdepth 1 -type d -printf "%P\n");do
         acceptable_num=`count_available_images $1/$family/$variety`
         examples_num=`ls $1/$family/$variety/ | wc -l`
-        #tot_num=$((example_num-acceptable_num))
-        if [ $acceptable_count -ge $MIN_EXAMPLES ];then
-            echo -e "\t[$family][$variety]: $acceptable_count"
+        if [ "$acceptable_num" -ge "$MIN_EXAMPLES" ];then
+            echo -e "\t[$family][$variety]: $acceptable_num"
             available_families+=("$1/$family/$variety+${family}_${variety}")
         fi
     done
