@@ -1,4 +1,9 @@
 #!/bin/bash
+MAX_FAMILIES=10
+MIN_EXAMPLES=600
+MAX_EXAMPLES=1000
+MAX_WIDTH=500
+
 if [ "$#" -ne 2 ]; then
     echo "usage: $0 [dataset_path] [output_path]"
     exit 1
@@ -9,24 +14,45 @@ if [ ! -d $1 ] || [ ! -d $2 ]; then
     exit 1
 fi
 
+# $1 to analyze file path
+has_acceptable_width() {
+    if [ $(identify -format "%w" $1) -le "$MAX_WIDTH" ];then
+        return true
+    else
+        return false
+    fi
+}
+
 # $1 source path
 # $2 destination path
 copy_max_label() {
-    for file in $(find $1 -type f -printf "%P\n" | head -n $MAX_EXAMPLES); do
-        cp "$1/$file" "$2/$file"
+    for file in $(find $1 -type f -printf "%P\n" | sort -R | head -n $MAX_EXAMPLES); do
+        if [ "$(has_acceptable_width $file)" = true ];then
+            cp "$1/$file" "$2/$file"
+        fi
     done
 }
 
-MAX_FAMILIES=10
-MIN_EXAMPLES=600
-MAX_EXAMPLES=1000
+# $1 path to count in
+count_available_images() {
+    acceptable_count=0
+    for file in $(find $1 -type f -printf "%p\n");do
+        if [ "$(has_acceptable_width $file)" = true ];then
+            ((acceptable_count++))
+        fi
+    done
+    return acceptable_count
+}
+
 available_families=()
 echo "sniper's gone start:"
-for family in $(ls $1 | sort);do
+for family in $(ls $1);do
     for variety in $(find $1/$family -mindepth 1 -maxdepth 1 -type d -printf "%P\n");do
-        examples_num=`ls $1/$family/$variety/ |wc -l`
-        if [ $examples_num -ge $MIN_EXAMPLES ];then
-            echo -e "\t[$family][$variety]: $examples_num"
+        acceptable_num=`count_available_images $1/$family/$variety`
+        examples_num=`ls $1/$family/$variety/ | wc -l`
+        tot_num=$((example_num-acceptable_num))
+        if [ $tot_num -ge $MIN_EXAMPLES ];then
+            echo -e "\t[$family][$variety]: $tot_num"
             available_families+=("$1/$family/$variety+${family}_${variety}")
         fi
     done

@@ -12,42 +12,18 @@ fi
 ############################
 ##### SCRIPT SETTINGS ######
 ############################
-FILES_PER_FAMILY=300
-FAMILIES_REQUIRED=8
 VAL_PERCENTAGE=10 #Compared to $FILES_PER_FAMILY
 TEST_PERCENTAGE=20 #Compared to $FILES_PER_FAMILY
 
-echo -e "\n######## ANALYSIS ########"
-collected_family_info=()
-for family in $(ls $1); do
-    ordered_complete=`find $1/$family -type f -printf "%p %s\n" | sort -nk 2`
-    complete_name=`echo "$ordered_complete" | cut -d ' ' -f 1`
-    total_number=`echo "$complete_name" | wc -l`
-    if [ "$total_number" -ge $FILES_PER_FAMILY ]; then
-        target_size="`echo "$ordered_complete" | head -n $FILES_PER_FAMILY | tail -n 1 | cut -d ' ' -f 2`"
-        echo "family ${family} has ${total_number} files and the ${FILES_PER_FAMILY}th example is ${target_size} bytes long"
-        collected_family_info+=("$family-$target_size")
-    else
-        echo "family ${family} hasn't enough files" 
-    fi
-done
-
-echo -e "\n######## SORTED FAMILIES ########"
-sorted_selected_info=($(for info in ${collected_family_info[*]};do
-    echo "$info" | tr '-' ' '
-done | sort -nrk 2 | head -n $FAMILIES_REQUIRED | tr ' ' '-'))
-printf '%s\n' "${sorted_selected_info[@]}"
-
-sorted_selected_families=()
-for family in $(echo ${sorted_selected_info[*]} | tr ' ' '\n' |cut -d '-' -f 1);do
-    sorted_selected_families+=("$family")
-done
-
-echo -e "\n######## RESULTS ########"
-min_size=`echo "${collected_family_info[*]}" | tr ' ' '\n' | tr '-' ' ' | sort -nrk 2 | head -n 1 | cut -d ' ' -f 2`
-echo -e "You need a minumum size of ${min_size} bytes from the fist ${FAMILIES_REQUIRED} families"
-
-echo -e "\n######## RANDOM FILES CREATING ########"
+if [ "$(($VAL_PERCENTAGE + $TEST_PERCENTAGE))" -le 50 ];then
+    echo "These will be the percentage:"
+    echo -e "\ttest: $TEST_PERCENTAGE"
+    echo -e "\tval: $VAL_PERCENTAGE"
+    echo -e "\ttrain: $((100 - $TEST_PERCENTAGE - $VAL_PERCENTAGE))"
+else
+    echo "error: VAL_PERCENTAGE and TEST_PERCENTAGE >= 50%"
+    exit 1
+fi
 
 test_dir_path="$2/test"
 training_main_path="$2/training"
@@ -58,30 +34,42 @@ mkdir $training_main_path
 mkdir $training_path
 mkdir $val_dir_path
 
-for family in ${sorted_selected_families[*]};do
+echo -e "directories structure created:"
+echo -e "\t$test_dir_path"
+echo -e "\t$training_path"
+echo -e "\t$val_dir_path"
 
-    family_training_path=$training_path/$family/
+echo -e 'labels processing:'
+for label in $(find $1 -maxdepth 1 -mindepth 1 -type d -printf "%p\n");do
+
+    family_training_path=$training_path/$label/
 
     mkdir $family_training_path
-    mkdir $test_dir_path/$family
-    mkdir $val_dir_path/$family
+    mkdir $test_dir_path/$label
+    mkdir $val_dir_path/$label
 
-    training_files=`find $1/$family -type f -size -${min_size} -printf "%p\n" | head -n $FILES_PER_FAMILY | sort -R`
-    training_files_num=`echo "$training_files" | wc -l`
-    val_files_num=$(($training_files_num / 100 * $VAL_PERCENTAGE))
-    test_files_num=$(($training_files_num / 100 * $TEST_PERCENTAGE))
+    all_files=`find $1/$label -type f -printf "%p\n"`
+    all_files_num=`echo "$all_files" | wc -l`
+    val_files_num=$(($all_files / 100 * $VAL_PERCENTAGE))
+    test_files_num=$(($all_files / 100 * $TEST_PERCENTAGE))
+    training_files_num=$(($all_files - $val_files_num - $test_files_num))
 
-    for file in ${training_files[*]};do
+    echo -e "\t[$label]"
+    echo -e "\t\tval: $val_files_num"
+    echo -e "\t\ttest: $test_files_num"
+    echo -e "\t\ttrain: $training_files_num"
+
+    for file in ${all_files[*]};do
         cp $file $family_training_path/`basename $file`
     done
     for file in $(find $family_training_path -type f -printf "%p\n" | head -n $val_files_num | sort -R);do
-        mv $file $family_training_path/../../val/$family/`basename $file`
+        mv $file $family_training_path/../../val/$label/`basename $file`
     done
     for file in $(find $family_training_path -type f -printf "%p\n" | head -n $test_files_num | sort -R);do
-        mv $file $family_training_path/../../../test/$family/`basename $file`
+        mv $file $family_training_path/../../../test/$label/`basename $file`
     done
 
-    echo "I've preprocessed all the files belonging to the $family family"
+    echo "I've preprocessed all the files belonging to the $label label"
 done
 
 echo -e "\n$0 has finished; good luck!"
