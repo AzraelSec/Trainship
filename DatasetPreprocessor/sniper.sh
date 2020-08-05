@@ -50,9 +50,9 @@ for family in $(ls $1);do
     for variety in $(find $1/$family -mindepth 1 -maxdepth 1 -type d -printf "%P\n");do
         acceptable_num=`count_available_images $1/$family/$variety`
         examples_num=`ls $1/$family/$variety/ | wc -l`
-        tot_num=$((example_num-acceptable_num))
-        if [ $tot_num -ge $MIN_EXAMPLES ];then
-            echo -e "\t[$family][$variety]: $tot_num"
+        #tot_num=$((example_num-acceptable_num))
+        if [ $acceptable_count -ge $MIN_EXAMPLES ];then
+            echo -e "\t[$family][$variety]: $acceptable_count"
             available_families+=("$1/$family/$variety+${family}_${variety}")
         fi
     done
