@@ -1,5 +1,7 @@
 {
     "cSpell.ignoreWords": [
         "keras"
-    ]
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
