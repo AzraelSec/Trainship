@@ -59,6 +59,7 @@ done
 if [ -d "$1/trusted" ];then
     echo "$1/trusted director found"
     mkdir "$2/trusted"
+    echo -e "\tcopying $(count_available_images $1/trusted/) files from trusted"
     copy_max_label "$1/trusted/" "$2/trusted/"
     echo "trusted copied"
 fi
