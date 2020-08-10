@@ -40,7 +40,7 @@ echo -e "\t$training_path"
 echo -e "\t$val_dir_path"
 
 echo -e 'labels processing:'
-for label in $(find $1 -maxdepth 1 -mindepth 1 -type d -printf "%p\n");do
+for label in $(find $1 -maxdepth 1 -mindepth 1 -type d -printf "%P\n");do
 
     family_training_path=$training_path/$label/
 
@@ -50,9 +50,9 @@ for label in $(find $1 -maxdepth 1 -mindepth 1 -type d -printf "%p\n");do
 
     all_files=`find $1/$label -type f -printf "%p\n"`
     all_files_num=`echo "$all_files" | wc -l`
-    val_files_num=$(($all_files / 100 * $VAL_PERCENTAGE))
-    test_files_num=$(($all_files / 100 * $TEST_PERCENTAGE))
-    training_files_num=$(($all_files - $val_files_num - $test_files_num))
+    val_files_num=$(($all_files_num / 100 * $VAL_PERCENTAGE))
+    test_files_num=$(($all_files_num / 100 * $TEST_PERCENTAGE))
+    training_files_num=$(($all_files_num - $val_files_num - $test_files_num))
 
     echo -e "\t[$label]"
     echo -e "\t\tval: $val_files_num"
