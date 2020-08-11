@@ -31,6 +31,11 @@ copy_max_label() {
             cp "$1/$file" "$2/$file"
         fi
     done
+    copied_files_num=$(ls $2 | wc -l)
+    if [ "$copied_files_num" -gt "$MAX_EXAMPLES" ];then
+        to_remove_files=$((copied_files_num - MAX_EXAMPLES))
+        rm `find $2 -type f -printf "%p\n" | sort -R | head -n $to_remove_files`
+    fi
 }
 
 # $1 path to count in
