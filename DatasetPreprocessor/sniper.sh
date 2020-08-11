@@ -26,7 +26,7 @@ has_acceptable_width() {
 # $1 source path
 # $2 destination path
 copy_max_label() {
-    for file in $(find $1 -type f -printf "%P\n" | sort -R | head -n $MAX_EXAMPLES); do
+    for file in $(find $1 -type f -printf "%P\n"); do
         if [ "$(has_acceptable_width $1/$file)" == "1" ];then
             cp "$1/$file" "$2/$file"
         fi
