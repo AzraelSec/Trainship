@@ -12,7 +12,7 @@ fi
 ############################
 ##### SCRIPT SETTINGS ######
 ############################
-VAL_PERCENTAGE=10 #Compared to $FILES_PER_FAMILY
+VAL_PERCENTAGE=15 #Compared to $FILES_PER_FAMILY
 TEST_PERCENTAGE=20 #Compared to $FILES_PER_FAMILY
 
 if [ "$(($VAL_PERCENTAGE + $TEST_PERCENTAGE))" -le 50 ];then
