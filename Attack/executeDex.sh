@@ -3,7 +3,7 @@
 D8_PATH='/usr/lib/android-sdk/build-tools/28.0.3'
 
 if [ $# -lt "2" ] || ! [ -f $1 ];then
-    echo "usage: $0 [DEX_FILE] [class_name]"
+    echo "usage: $0 [class.dex_path] [class_name]"
     exit 1
 fi
 
