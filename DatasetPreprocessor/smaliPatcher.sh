@@ -14,7 +14,7 @@ if [ $# -lt "1" ] || ! [ -d $1 ];then
     exit 1
 fi
 
-for file in $(find $1 -mindepth 1 -printf "%p\n");do
+for file in $(find $1 -mindepth 1 -type f -printf "%p\n");do
     conversion_reconversion $file
     echo -e "file $file processed"
 done
