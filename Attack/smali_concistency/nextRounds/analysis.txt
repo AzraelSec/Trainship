@@ -1,0 +1,330 @@
+/home/azraelsec/ds/dexes/00de1f82c3e0ecc711f68bd9c32efe4d.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2f18d831bc76f96ecdebcc60791572f3.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/02b6b5ff5e794489b91407c090df480.dex
+	first: prediction for the image: [[0. 0. 0. 0. 1. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0d72d614fc8c2704cc0bb8cc05986629.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2f0917e46920dd55789181632f58d.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0de9c7e1262f08766957eff98833.dex
+	first: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1cc4df3c281869508fc0b0d924f545.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1de199b5f03b2ec30c525e3679d506.dex
+	first: prediction for the image: [[5.928584e-37 1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+  0.000000e+00]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1.0000000e+00 2.3320776e-38 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  0.0000000e+00]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2d828df53d4b30e0975301107c5b.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+
+/home/azraelsec/ds/dexes/01c5264dcc6868b0f5f62c3b0cd82.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0df626213380603b29ec726c07638.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2b64711fe6f0b0b9c60c64334c542.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[9.9965000e-01 0.0000000e+00 0.0000000e+00 0.0000000e+00 1.4316357e-25
+  3.4998855e-04]]
+	conversion: prediction for the image: [[9.8102802e-01 0.0000000e+00 0.0000000e+00 0.0000000e+00 2.5514449e-23
+  1.8972002e-02]]
+	conversion: prediction for the image: [[9.8102802e-01 0.0000000e+00 0.0000000e+00 0.0000000e+00 2.5514449e-23
+  1.8972002e-02]]
+
+/home/azraelsec/ds/dexes/0b639485e183cfb4cc507b992209b6c.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0fcb091938f1032f984594bc4dd0d908.dex
+	first: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1d7b0f628f244d88678838cdd9b5.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0b57c7257634c2d2763644939d4e83b.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0.000000e+00 0.000000e+00 0.000000e+00 9.999993e-01 0.000000e+00
+  7.559087e-07]]
+	conversion: prediction for the image: [[0.000000e+00 0.000000e+00 0.000000e+00 9.999995e-01 0.000000e+00
+  5.010950e-07]]
+	conversion: prediction for the image: [[0.000000e+00 0.000000e+00 0.000000e+00 9.999993e-01 0.000000e+00
+  7.559087e-07]]
+
+/home/azraelsec/ds/dexes/0c14951cf27b4c3dc2fef14c3eb0c3.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[6.7363592e-04 0.0000000e+00 9.9932635e-01 0.0000000e+00 0.0000000e+00
+  0.0000000e+00]]
+	conversion: prediction for the image: [[6.7363592e-04 0.0000000e+00 9.9932635e-01 0.0000000e+00 0.0000000e+00
+  0.0000000e+00]]
+	conversion: prediction for the image: [[6.7363592e-04 0.0000000e+00 9.9932635e-01 0.0000000e+00 0.0000000e+00
+  0.0000000e+00]]
+
+/home/azraelsec/ds/dexes/0c08c3e7b9648d589b36ce47d667576f.dex
+	first: prediction for the image: [[0. 0. 0. 0. 1. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0d8be372f2824655ef62f487bdb8d.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1e12d2158b4cd98557251dcdfe24638.dex
+	first: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2dcf37704f3df1d34987705050bee.dex
+	first: prediction for the image: [[0.0000000e+00 6.4964555e-17 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  1.0000000e+00]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2fe9ed8d521702bc23df98eb1b60.dex
+	first: prediction for the image: [[0. 0. 0. 0. 1. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2c972c8815c8e98774b224d06f5b596.dex
+	first: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0e407848fc5111bb228bdfe63d1bb4.dex
+	first: prediction for the image: [[1.2074094e-14 1.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  0.0000000e+00]]
+	conversion: prediction for the image: [[1.0000000e+00 0.0000000e+00 0.0000000e+00 1.6186666e-28 0.0000000e+00
+  1.7669912e-31]]
+	conversion: prediction for the image: [[1.0000000e+00 0.0000000e+00 0.0000000e+00 1.6186666e-28 0.0000000e+00
+  1.7669912e-31]]
+	conversion: prediction for the image: [[1.0000000e+00 0.0000000e+00 0.0000000e+00 1.6186666e-28 0.0000000e+00
+  1.7669912e-31]]
+
+/home/azraelsec/ds/dexes/2e3d525e8b39b3b067707dc881d2b.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2c900e4b0b5cbf482125ebf8c335bb67.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0d49e35ffeccbe4d24bc529f15012.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0b032b7d26c25d5c8b66cb832b6044.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2e738d79feeb6847d4652688e6dc5.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0.0000000e+00 1.0000000e+00 0.0000000e+00 1.4599771e-17 0.0000000e+00
+  0.0000000e+00]]
+	conversion: prediction for the image: [[0.0000000e+00 1.0000000e+00 0.0000000e+00 1.4599771e-17 0.0000000e+00
+  0.0000000e+00]]
+	conversion: prediction for the image: [[0.0000000e+00 1.0000000e+00 0.0000000e+00 1.4599771e-17 0.0000000e+00
+  0.0000000e+00]]
+
+/home/azraelsec/ds/dexes/1bc548ff358b05891344c5d0e2475431.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0f23fb687e8b086936010022d1774.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[6.9367927e-16 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  1.0000000e+00]]
+	conversion: prediction for the image: [[6.9367927e-16 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  1.0000000e+00]]
+	conversion: prediction for the image: [[6.9367927e-16 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  1.0000000e+00]]
+
+/home/azraelsec/ds/dexes/0c33e2f3ff62d77748d6e9d17e68318.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0d96675602ff2d89724d913d03546083.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1e76e3b1b5435328c385730c55f0381.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0c6470cb57cb0bb3d4dcf673fccb7c9c.dex
+	first: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1fe6e628740d3e1b99e0f61f7c07e.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[9.999800e-01 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+  2.008492e-05]]
+	conversion: prediction for the image: [[8.519257e-17 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+  1.000000e+00]]
+	conversion: prediction for the image: [[1.4836863e-18 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  1.0000000e+00]]
+
+/home/azraelsec/ds/dexes/1b959e59d13cde80e7702f97c50ce2d.dex
+	first: prediction for the image: [[0. 0. 0. 0. 1. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0d4ee53b02fc47ef52ed93f84410c07.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1bdf6e34b0d0679f3316b9fcec2476.dex
+	first: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2b5458733c6d06c56fcf5bdf678c5.dex
+	first: prediction for the image: [[0.0000000e+00 1.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  2.5832442e-17]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
+/home/azraelsec/ds/dexes/2f59c85bf4b257c0bee307e88cf5f.dex
+	first: prediction for the image: [[0.0000000e+00 1.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+  2.6563807e-27]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+
+/home/azraelsec/ds/dexes/2efb9e0063d097330d971e55631e3383.dex
+	first: prediction for the image: [[1. 0. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0ccd147e11ebbf97e052c369d42.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1c223b531c9c27ec8de1c6e4114830.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0.0000000e+00 0.0000000e+00 0.0000000e+00 9.9987721e-01 0.0000000e+00
+  1.2277815e-04]]
+	conversion: prediction for the image: [[0.0000000e+00 0.0000000e+00 0.0000000e+00 9.9987721e-01 0.0000000e+00
+  1.2277815e-04]]
+	conversion: prediction for the image: [[0.0000000e+00 0.0000000e+00 0.0000000e+00 9.9987721e-01 0.0000000e+00
+  1.2277815e-04]]
+
+/home/azraelsec/ds/dexes/1c7e69eb4d2991351d9e964ed2d41b1d.dex
+	first: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+
+/home/azraelsec/ds/dexes/001c84221f4764b961b7e70d5bf325f.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/1fd8feb4d9886b296ce423c392456.dex
+	first: prediction for the image: [[0.         0.841431   0.         0.         0.         0.15856892]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+
+/home/azraelsec/ds/dexes/0f0b34dd231e519f3e927ce831875b.dex
+	first: prediction for the image: [[0. 0. 1. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+
+/home/azraelsec/ds/dexes/1f8176e20b901d4402000974bf1f8.dex
+	first: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+	conversion: prediction for the image: [[0. 0. 0. 0. 0. 1.]]
+
+/home/azraelsec/ds/dexes/0c1754c59dee18df2173985345dd7.dex
+	first: prediction for the image: [[0. 1. 0. 0. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+	conversion: prediction for the image: [[0. 0. 0. 1. 0. 0.]]
+
