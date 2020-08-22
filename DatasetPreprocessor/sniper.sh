@@ -50,7 +50,7 @@ count_available_images() {
 }
 
 available_families=()
-echo "sniper's gone start:"
+echo "sniper's gonna start:"
 for family in $(ls $1);do
     for variety in $(find $1/$family -mindepth 1 -maxdepth 1 -type d -printf "%P\n");do
         acceptable_num=`count_available_images $1/$family/$variety`
