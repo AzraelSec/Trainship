@@ -1,1 +1,4 @@
 **/__pycache__/
+Attack/smali*
+Attack/test_smali
+.vscode/.ropeproject/objectdb
