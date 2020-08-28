@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="btn_height">100.0dip</dimen>
-    <dimen name="btn_textfontsize">36.0sp</dimen>
-    <dimen name="main_textfontsize">50.0sp</dimen>
-    <dimen name="result_image_height">560.0dip</dimen>
-    <dimen name="start_button_rounding">10.0dip</dimen>
-</resources>

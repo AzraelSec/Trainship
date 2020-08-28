@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="rectangle"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="@dimen/start_button_rounding" /> // if you want clear round shape then make radius size is half of your  button`s height. <solid android:color="@color/testBtnColorBg" /> // Button Colour <padding android:left="15dp" android:top="5dp" android:right="15dp" android:bottom="15dp" />
-</shape>
