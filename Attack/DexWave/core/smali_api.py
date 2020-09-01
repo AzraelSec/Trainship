@@ -8,13 +8,16 @@ class SmaliAPI:
     self.smali_jar_location = os.getenv('SMALI_PATH') or os.path.join(os.path.realpath(os.path.dirname(__file__)), 'resources', 'smali', 'smali.jar')
     self.baksmali_jar_location = os.getenv('BAKSMALI_PATH') or os.path.join(os.path.realpath(os.path.dirname(__file__)), 'resources', 'smali', 'baksmali.jar')
 
+    self.logger = logging.getLogger(__name__)
+    self.logger.setLevel(logging.DEBUG)
+
     if not os.path.isfile(self.smali_jar_location) or not os.path.isfile(self.baksmali_jar_location):
-      logging.debug('SMALI_PATH: {}'.format(self.smali_jar_location))
-      logging.debug('BAKSMALI_PATH: {}'.format(self.baksmali_jar_location))
+      self.logger.debug('SMALI_PATH: {}'.format(self.smali_jar_location))
+      self.logger.debug('BAKSMALI_PATH: {}'.format(self.baksmali_jar_location))
       raise RuntimeError('smali or baksmali not located')
     else:
-      logging.debug('SMALI_PATH: {}'.format(self.smali_jar_location))
-      logging.debug('BAKSMALI_PATH: {}'.format(self.baksmali_jar_location))
+      self.logger.debug('SMALI_PATH: {}'.format(self.smali_jar_location))
+      self.logger.debug('BAKSMALI_PATH: {}'.format(self.baksmali_jar_location))
 
   def baksmali(self, intput_dex_path, output_parent_path, output_dir_name):
     if os.path.isfile(intput_dex_path):
@@ -30,7 +33,7 @@ class SmaliAPI:
         ]
         try:
           subprocess.run(execution_args)
-          logging.debug('{} dex has been disassembled into {}'.format(intput_dex_path, os.path.join(os.path.realpath(output_parent_path), output_dir_name)))
+          self.logger.debug('{} dex has been disassembled into {}'.format(intput_dex_path, os.path.join(os.path.realpath(output_parent_path), output_dir_name)))
         except subprocess.CalledProcessError as e:
           raise Exception('unable to execute baksmali: {}'.format(e))
       else:
@@ -51,7 +54,7 @@ class SmaliAPI:
       ]
       try:
         subprocess.run(execution_args)
-        logging.debug('{} smali has been assembled into {}'.format(input_smali_path, output_dex_path))
+        self.logger.debug('{} smali has been assembled into {}'.format(input_smali_path, output_dex_path))
       except subprocess.CalledProcessError as e:
         raise Exception('unable to execute smali: {}'.format(e))
     else:

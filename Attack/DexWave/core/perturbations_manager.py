@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import logging
 from yapsy.PluginManager import PluginManager
 
 class PerturbationsManager:
@@ -9,7 +10,9 @@ class PerturbationsManager:
       plugin_info_ext='perturbation')
     self.plugin_manager.collectPlugins()
     self.last_perturbation_index = -1 # None applied yet 
-  
+    self.logger = logging.getLogger(__name__)
+    self.logger.setLevel(logging.DEBUG)
+
   def get_next_perturbation(self):
     self.last_perturbation_index = self.last_perturbation_index + 1
     return self.plugin_manager.getAllPlugins()[self.last_perturbation_index]

@@ -23,11 +23,14 @@ class Obfuscation:
 
     self.inflated = False
 
+    self.logger = logging.getLogger(__name__)
+    self.logger.setLevel(logging.DEBUG)
+
   def inflate(self):
     if not self.inflated:
       if os.path.isfile(self.input_dex_path):
         if os.path.isdir(self.output_dex_dir):
-          logging.info('file {} is going to be obfuscated into {}'.format(self.input_dex_path, self.output_dex_path))
+          self.logger.info('file {} is going to be obfuscated into {}'.format(self.input_dex_path, self.output_dex_path))
           
           self.smali_api.baksmali(self.input_dex_path, '/tmp', self.working_dir)
 
@@ -46,7 +49,7 @@ class Obfuscation:
             )
           ]
 
-          logging.debug('collected files: {}'.format(filtered_files))
+          self.logger.debug('collected files: {}'.format(filtered_files))
         else:
           raise OSError('directory {} is unavailable'.format(self.output_dex_dir))
       else:
@@ -56,7 +59,7 @@ class Obfuscation:
     if self.inflate:
       if os.path.isdir(self.working_dir_path):
         self.smali_api.smali(self.working_dir_path, self.output_dex_path)
-        logging.info('obfuscated file created at {}'.format(self.output_dex_path))
+        self.logger.info('obfuscated file created at {}'.format(self.output_dex_path))
       else:
         raise OSError('smali directory {} unavailable'.format(self.working_dir_path))
     else:

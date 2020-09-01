@@ -9,6 +9,9 @@ from mirror import Mirror
 from classificator.MalwareClassificator import MalwareClassificator
 from perturbations_manager import PerturbationsManager
 
+'''
+  Logging Settings
+'''
 handler = colorlog.StreamHandler()
 handler.setFormatter(colorlog.ColoredFormatter(
   "[%(log_color)s%(levelname)s%(reset)s] %(message)s",
@@ -23,9 +26,13 @@ handler.setFormatter(colorlog.ColoredFormatter(
   style="%"
 ))
 
-logging.getLogger().setLevel(logging.DEBUG)
 logging.getLogger().addHandler(handler)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
+'''
+  Attack Algorithm Definition
+'''
 def attack(
   input_dex_path,
   output_dex_path,
@@ -39,31 +46,34 @@ def attack(
   try:
     classificator.load_weights(weights_path)
     loaded_perturbations = perturbation_manager.get_all_perturbations()
-    logging.info('perturbations loaded: {}'.format(loaded_perturbations))
-    exit()
+    logger.info('perturbations loaded: {}'.format(loaded_perturbations))
 
     obfuscation = Obfuscation(input_dex_path, output_dex_path)
     obfuscation.inflate()
     
     # TODO: move to working dir instead
     original_dex_image = mirrorPy.elaborate(input_dex_path, obfuscation.output_dex_dir) 
-    logging.info('original dex image can be found at {}'.format(original_dex_image))
+    logger.info('original dex image can be found at {}'.format(original_dex_image))
 
     prediction = classificator.predict(original_dex_image)
-    logging.info('original dex image has been classified as: {}'.format(prediction if classificator_labels is None else classificator.get_label_from_prediction(prediction)))
+    logger.info('original dex image has been classified as: {}'.format(prediction if classificator_labels is None else classificator.get_label_from_prediction(prediction)))
 
     obfuscation.produce_dex()
      # TODO: move to working dir instead
     obfuscated_dex_image = mirrorPy.elaborate(obfuscation.output_dex_path, obfuscation.output_dex_dir)
 
     new_prediction = classificator.predict(obfuscated_dex_image)
-    logging.info('obfuscated dex image has been classified as: {}'.format(new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
+    logger.info('obfuscated dex image has been classified as: {}'.format(new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
   except Exception as e:
-    logging.error(e)
+    logger.error(e)
     exit(1)
   
 def classificator_label_parse(label_string: str):
   return label_string.replace(' ', '').split(',')
+
+'''
+  Entry-point
+'''
 
 if __name__ == '__main__':
   parser = ArgumentParser()

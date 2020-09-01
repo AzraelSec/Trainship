@@ -8,6 +8,10 @@ import math
 import logging
 
 class Mirror:
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(logging.DEBUG)
+
     def get_file_bytes(self, file_path):
         bytes_pool = []
         with open(file_path, 'rb') as fd:
@@ -39,14 +43,14 @@ class Mirror:
 
         if not os.path.exists(output_dir):
             os.mkdir(output_dir)
-            logging.debug('{} directory created'.format(output_dir))
+            self.logger.debug('{} directory created'.format(output_dir))
         
-        logging.info('{} directory analysis started'.format(path))
+        self.logger.info('{} directory analysis started'.format(path))
         for entry in os.listdir(path):
             entry_path = os.path.join(path, entry)
             if os.path.isfile(entry_path): # and os.path.splitext(file_path)[1] == '.exe'
                 self.create_gs_image(entry_path, output_dir)
-                logging.debug('{} file processed at {}'.format(entry, entry_path))
+                self.logger.debug('{} file processed at {}'.format(entry, entry_path))
             elif os.path.isdir(entry_path):
                 directories_pool.append(entry)
         
@@ -60,14 +64,14 @@ class Mirror:
 
     def elaborate(self, path, output_dir):
         if os.path.isfile(path):
-            logging.debug('MirrorPy\'s operating in file mode')
+            self.logger.debug('MirrorPy\'s operating in file mode')
             result_img = self.create_gs_image(path, output_dir)
-            logging.debug('new file created: {}'.format(result_img))
+            self.logger.debug('new file created: {}'.format(result_img))
             return result_img
         elif os.path.isdir(path):
-            logging.debug('MirrorPy\'s operating in directory mode')
+            self.logger.debug('MirrorPy\'s operating in directory mode')
             main_output_path = self.recoursive_creation(path, output_dir)
-            logging.debug('all the files can be found at {}'.format(main_output_path))
+            self.logger.debug('all the files can be found at {}'.format(main_output_path))
             return main_output_path
         else:
             raise FileNotFoundError('{} path is not a file nor a directory'.format(path))
