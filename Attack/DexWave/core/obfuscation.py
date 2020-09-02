@@ -49,7 +49,8 @@ class Obfuscation:
             )
           ]
 
-          self.logger.debug('collected files: {}'.format(filtered_files))
+          self.smali_files = filtered_files
+          self.logger.debug('{} collected files'.format(len(filtered_files)))
         else:
           raise OSError('directory {} is unavailable'.format(self.output_dex_dir))
       else:

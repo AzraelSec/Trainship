@@ -1,12 +1,11 @@
 import logging
-from yapsy.IPlugin import IPlugin
+from perturbation_interface import IPerturbation
+from obfuscation import Obfuscation
 
-class Test(IPlugin):
+class Test(IPerturbation):
   def __init__(self):
     super().__init__()
-    self.logger = logging.getLogger(__name__)
-    self.logger.setLevel(logging.DEBUG)
-    self.logger.debug('Test plugin started')
   
-  def test_method(self):
-    self.logger.debug('successful test')
+  def perturbate(self, obfuscation: Obfuscation):
+    for file in obfuscation.smali_files:
+      self.logger.debug('{} file obfuscating...'.format(file))

@@ -2,12 +2,14 @@
 import os
 import colorlog
 import logging
+from numpy import array_equal
 from dotenv import load_dotenv
 from argparse import ArgumentParser
 from obfuscation import Obfuscation
 from mirror import Mirror
 from classificator.MalwareClassificator import MalwareClassificator
 from perturbations_manager import PerturbationsManager
+from perturbation_interface import IPerturbation
 
 '''
   Logging Settings
@@ -40,13 +42,14 @@ def attack(
   classificator_labels,
   perturbations_path=os.path.join(os.path.dirname(os.path.realpath(__file__)), 'perturbations'),
 ):
+  success = False
   mirrorPy = Mirror()
   classificator = MalwareClassificator(6, 200) if classificator_labels is None else MalwareClassificator(6, 200, family_labels=classificator_label_parse(classificator_labels))
   perturbation_manager = PerturbationsManager(perturbations_path)
   try:
     classificator.load_weights(weights_path)
     loaded_perturbations = perturbation_manager.get_all_perturbations()
-    logger.info('perturbations loaded: {}'.format(loaded_perturbations))
+    logger.info('perturbations loaded: {}'.format(perturbation.name for perturbation in loaded_perturbations))
 
     obfuscation = Obfuscation(input_dex_path, output_dex_path)
     obfuscation.inflate()
@@ -58,12 +61,27 @@ def attack(
     prediction = classificator.predict(original_dex_image)
     logger.info('original dex image has been classified as: {}'.format(prediction if classificator_labels is None else classificator.get_label_from_prediction(prediction)))
 
-    obfuscation.produce_dex()
-     # TODO: move to working dir instead
-    obfuscated_dex_image = mirrorPy.elaborate(obfuscation.output_dex_path, obfuscation.output_dex_dir)
+    for perturbation in loaded_perturbations:
+      if not success:
+        perturbation.plugin_object.perturbate(obfuscation)
 
-    new_prediction = classificator.predict(obfuscated_dex_image)
-    logger.info('obfuscated dex image has been classified as: {}'.format(new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
+        obfuscation.produce_dex()
+        # TODO: move to working dir instead
+        obfuscated_dex_image = mirrorPy.elaborate(obfuscation.output_dex_path, obfuscation.output_dex_dir)
+
+        new_prediction = classificator.predict(obfuscated_dex_image)
+
+        if not array_equal(prediction, new_prediction):
+          logger.info('untargeted misclassification successful via {}: {} -> {}'.format(perturbation.name, prediction, new_prediction))
+          success = True
+        else:
+          logger.info('{} perturbation is not strong enough'.format(perturbation.name))
+
+    if success:
+      logger.info('successful misclassified dex at {} recognized as {}'.format(obfuscation.output_dex_path, new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
+    else:
+      logger.error('miscassification failed, you need to write a stronger perturbation')
+    #logger.info('obfuscated dex image has been classified as: {}'.format(new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
   except Exception as e:
     logger.error(e)
     exit(1)
@@ -74,7 +92,6 @@ def classificator_label_parse(label_string: str):
 '''
   Entry-point
 '''
-
 if __name__ == '__main__':
   parser = ArgumentParser()
   parser.add_argument('input_dex_path', type=str, help='path of the input dex file')
