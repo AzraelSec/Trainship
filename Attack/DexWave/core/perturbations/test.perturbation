@@ -3,5 +3,5 @@ Name = Test
 Module = test
 
 [Documentation]
-Description = Apply reflection only to dangerous APIs
+Description = A simple test perturbation
 Version = 1.0

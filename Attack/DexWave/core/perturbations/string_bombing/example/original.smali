@@ -19,12 +19,10 @@
     .line 5
     sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string v0, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    const-string v0, "Hello world"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 6
     return-void
-    
-    const-string v0, "aIAJSOIDJOAISJDOIASJDOIJASODIJASOIDJOIASJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ"
 .end method

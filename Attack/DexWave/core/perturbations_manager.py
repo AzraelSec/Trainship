@@ -18,11 +18,6 @@ class PerturbationsManager:
     self.iterator = None
     self.logger = logging.getLogger(__name__)
     self.logger.setLevel(logging.DEBUG)
-  
-  def collect(self):
-    self.loaded_perturbations = self.get_all_perturbations()
-    self.logger.info('{} perturbations loaded: {}'.format(len(self.loaded_perturbations), self.loaded_perturbations))
-    self.iterator = iter(self.loaded_perturbations)
 
   def get_next_perturbation(self):
     if self.iterator:

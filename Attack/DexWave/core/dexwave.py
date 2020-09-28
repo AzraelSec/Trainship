@@ -49,7 +49,7 @@ def attack(
   try:
     classificator.load_weights(weights_path)
     loaded_perturbations = perturbation_manager.get_all_perturbations()
-    logger.info('perturbations loaded: {}'.format(perturbation.name for perturbation in loaded_perturbations))
+    logger.info('perturbations loaded: {}'.format(','.join(perturbation.name for perturbation in loaded_perturbations)))
 
     obfuscation = Obfuscation(input_dex_path, output_dex_path)
     obfuscation.inflate()
@@ -72,20 +72,20 @@ def attack(
         new_prediction = classificator.predict(obfuscated_dex_image)
 
         if not array_equal(prediction, new_prediction):
-          logger.info('untargeted misclassification successful via {}: {} -> {}'.format(perturbation.name, prediction, new_prediction))
+          logger.debug('untargeted misclassification successful via {}: {} -> {}'.format(perturbation.name, prediction, new_prediction))
+
           success = True
         else:
-          logger.info('{} perturbation is not strong enough'.format(perturbation.name))
+          logger.debug('{} perturbation is not strong enough: {}'.format(perturbation.name,  new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
 
     if success:
       logger.info('successful misclassified dex at {} recognized as {}'.format(obfuscation.output_dex_path, new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
     else:
       logger.error('miscassification failed, you need to write a stronger perturbation')
-    #logger.info('obfuscated dex image has been classified as: {}'.format(new_prediction if classificator_labels is None else classificator.get_label_from_prediction(new_prediction)))
   except Exception as e:
     logger.error(e)
     exit(1)
-  
+
 def classificator_label_parse(label_string: str):
   return label_string.replace(' ', '').split(',')
 
